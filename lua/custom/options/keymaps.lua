@@ -1,5 +1,12 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+-- TODO: Make a execute command in python keybind
+
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -7,6 +14,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Delete with `x` without affecting the default registers.
+vim.keymap.set('n', 'x', '"_x')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -34,3 +44,29 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Split keybinds
 vim.keymap.set('n', '<leader>Sh', '<C-w>s', { desc = '[H]orizontal split ' })
 vim.keymap.set('n', '<leader>Sv', '<C-w>v', { desc = '[V]ertical split ' })
+vim.keymap.set('n', '<leader>Sq', '<C-w>c', { desc = '[Q]uit (close) split' })
+
+-- Easily hit escape in terminal mode.
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+vim.keymap.set('n', '<leader>-', function()
+  vim.cmd.new()
+  vim.cmd.wincmd 'J'
+  vim.api.nvim_win_set_height(0, 18)
+  vim.wo.winfixheight = true
+  vim.cmd.term()
+  vim.cmd 'startinsert'
+end, { desc = 'Terminal' })
+
+-- Write changes
+-- vim.keymap.set('n', '<leader>W', ':w', { desc = '[W]rite changes' })
+
+-- Open a tab
+vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]' })
+
+-- Cycle tabs
+vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
+
+-- Quit all buffers without saving
+vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { desc = '[Q]uit all without saving' })

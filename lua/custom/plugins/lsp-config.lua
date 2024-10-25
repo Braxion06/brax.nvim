@@ -110,6 +110,9 @@ return {
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          -- Neovim now has a default keybind doing the same
+          -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -158,6 +161,8 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      -- Turn off Dinamyc watching for files
+      -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -197,7 +202,7 @@ return {
           },
         },
       }
-
+      -- NOTE: MASON CONFIG
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
@@ -210,7 +215,13 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        -- Formatters
         'stylua', -- Used to format Lua code
+        'isort', -- Python formatter for import statements
+        'black', -- Black is the uncompromising Python code formatter
+
+        -- Linters
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

@@ -12,6 +12,7 @@ return {
     -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
+      lazy = false,
       build = (function()
         -- Build Step is needed for regex support in snippets.
         -- This step is not supported in many windows environments.
@@ -32,26 +33,53 @@ return {
         --   end,
         -- },
       },
+      config = function()
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        require('luasnip.loaders.from_lua').load { paths = 'lua/custom/snippets' }
+      end,
     },
     'saadparwaiz1/cmp_luasnip',
-
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'onsails/lspkind.nvim',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    luasnip.config.setup {}
+    -- luasnip.config.setup {}
+
+    local lspkind = require 'lspkind'
 
     cmp.setup {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol_text',
+          maxwidth = 50,
+          ellipsis_char = '...',
+          show_labelDetails = false, -- show labelDetails in menu. Disabled by default
+          -- NOTE: The only option i've seen is [LSP]
+          -- May remove the menu field altogether in the future
+          menu = {
+            nvim_lsp = '[LSP]',
+            buffer = '[Buffer]',
+            luasnip = '[LuaSnip]',
+            nvim_lua = '[Lua]',
+            latex_symbols = '[Latex]',
+            ['vim-dadbod-completion'] = '[DB]',
+            path = '[Path]',
+          },
+        },
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
 
@@ -80,18 +108,22 @@ return {
         --['<CR>'] = cmp.mapping.confirm { select = true },
         --['<Tab>'] = cmp.mapping.select_next_item(),
         --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        --
+        -- Cancel the completion
+        -- ['<S-Tab>'] = cmp.mapping.close(),
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
         ['<C-Space>'] = cmp.mapping.complete {},
-
+        ['<C-S-Space>'] = cmp.mapping.complete {},
         -- Think of <c-l> as moving to the right of your snippet expansion.
         --  So if you have a snippet that's like:
         --  function $name($args)
         --    $body
         --  end
         --
+        -- Move between parameters in a snippet or completions
         -- <c-l> will move you to the right of each of the expansion locations.
         -- <c-h> is similar, except moving you backwards.
         ['<C-l>'] = cmp.mapping(function()
@@ -114,10 +146,10 @@ return {
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
           group_index = 0,
         },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        { name = 'buffer' },
+        { name = 'nvim_lsp' }, -- Complete with LSP
+        { name = 'luasnip' }, -- Complete with LuaSnip snippets
+        { name = 'path' }, -- Complete with relative path files
+        { name = 'buffer' }, -- Complete with current buffer
       },
       cmp.setup.filetype({ 'sql' }, {
         sources = {

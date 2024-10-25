@@ -18,16 +18,18 @@ return {
   -- },
   config = function()
     require('catppuccin').setup {
+      term_colors = true,
       flavour = 'mocha',
-      color_overrides = {
-        -- Changed the mocha palette
-        -- base (for background) changed to my terminal color
-        -- mantle is now the original base color
-        mocha = {
-          base = '#1D1E1F',
-          mantle = '#1e1e2e',
-        },
-      },
+      -- color_overrides = {
+      --   -- Fixed Neovim color setting
+      --   -- Changed the mocha palette
+      --   -- base (for background) changed to my terminal color
+      --   -- mantle is now the original base color
+      --   mocha = {
+      --     base = '#1D1E1F',
+      --     mantle = '#1E1E2E',
+      --   },
+      -- },
     }
     vim.cmd.colorscheme 'catppuccin'
   end,
