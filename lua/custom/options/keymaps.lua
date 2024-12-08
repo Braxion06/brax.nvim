@@ -24,6 +24,7 @@ vim.keymap.set('n', 'x', '"_x')
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
+-- Easily hit escape in terminal mode.
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
@@ -45,9 +46,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>Sh', '<C-w>s', { desc = '[H]orizontal split ' })
 vim.keymap.set('n', '<leader>Sv', '<C-w>v', { desc = '[V]ertical split ' })
 vim.keymap.set('n', '<leader>Sq', '<C-w>c', { desc = '[Q]uit (close) split' })
-
--- Easily hit escape in terminal mode.
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
 
 -- Open a terminal at the bottom of the screen with a fixed height.
 vim.keymap.set('n', '<leader>-', function()
