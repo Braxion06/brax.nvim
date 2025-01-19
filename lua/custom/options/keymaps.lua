@@ -63,8 +63,8 @@ end, { desc = 'Terminal' })
 -- Open a tab
 vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]' })
 
--- Cycle tabs
-vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
+-- Cycle tabs use `gt` and 'gT' instead
+-- vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
 
 -- Quit all buffers without saving
 vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { desc = '[Q]uit all without saving' })
