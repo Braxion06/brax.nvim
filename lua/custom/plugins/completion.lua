@@ -153,6 +153,7 @@ return {
       },
       cmp.setup.filetype({ 'sql' }, {
         sources = {
+          { name = 'nvim_lsp' }, -- Complete with LSP
           { name = 'vim-dadbod-completion' },
           { name = 'buffer' },
         },

@@ -1,5 +1,4 @@
 -- LSP Plugins
-
 return {
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -172,11 +171,44 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      -- LSPs (Language Server Protocol servers)
       local servers = {
-        -- clangd = {},
+        clangd = {},
+        -- csharp_ls = {},
         -- gopls = {},
         pyright = {},
         ansiblels = {},
+        yamlls = {},
+
+        sqlls = {
+          settings = {
+            sqlLanguageServer = {
+              -- FIX: This does not work, still need to create
+              -- a .sqllsrc.json in $PWD in the projects that use it
+              -- connections = {
+              --   {
+              --     name = 'dev_postgres',
+              --     adapter = 'postgres',
+              --     host = 'localhost',
+              --     port = 5432,
+              --   },
+              -- },
+              -- NOTE: Turned off sqlls linting, sqlfluff is better at this
+              lint = {
+                rules = {
+                  align_column_to_the_first = 'off',
+                  column_new_line = 'off',
+                  linebreak_after_clause_keyword = 'off',
+                  reserved_word_case = 'off',
+                  space_surrounding_operators = 'off',
+                  where_clause_new_line = 'off',
+                  align_where_clause_to_the_first = 'off',
+                },
+              },
+            },
+          },
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -218,14 +250,23 @@ return {
         -- Formatters
         'stylua', -- Used to format Lua code
         'isort', -- Python formatter for import statements
-        'black', -- Black is the uncompromising Python code formatter
+        'black', -- Black is the uncompromising Python code formatter(PEP8 compliant)
+        'yamlfmt', -- YAML
+        'prettierd', -- Javascript, Typescript, css, html
+        -- 'sqlfluff', -- Sqlfluff is a formatter too
 
         -- Linters
-        'markdownlint',
+        'markdownlint', -- Markdown
+        'jsonlint', -- JSON
+        'pylint', -- Python
+        'hadolint', -- Dockerfile
+        'yamllint', -- YAML
+        'sqlfluff', -- SQL dialetcs
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}

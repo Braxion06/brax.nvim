@@ -1,6 +1,4 @@
 -- Adds git related signs to the gutter, as well as utilities for managing changes
--- NOTE: gitsigns is already included in init.lua but contains only the base
--- config. This will add also the recommended keymaps.
 
 return {
   {
@@ -13,6 +11,9 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      numhl = false, -- Line number highlight
+      linehl = false, -- Line highlight
+      attach_to_untracked = false, -- Attach gitsigns to untracked files
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -51,7 +52,6 @@ return {
         map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
         map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
         map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
         map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
         map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
@@ -60,8 +60,9 @@ return {
           gitsigns.diffthis '@'
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
-        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
+        map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git show [b]lame line' })
+        map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = 'Toggle git show [d]eleted' })
+        map('n', '<leader>tgh', gitsigns.toggle_linehl, { desc = 'Toggle git line [H]ighlights' })
       end,
     },
   },

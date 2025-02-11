@@ -51,7 +51,7 @@ vim.keymap.set('n', '<leader>Sq', '<C-w>c', { desc = '[Q]uit (close) split' })
 vim.keymap.set('n', '<leader>-', function()
   vim.cmd.new()
   vim.cmd.wincmd 'J'
-  vim.api.nvim_win_set_height(0, 18)
+  vim.api.nvim_win_set_height(0, 15)
   vim.wo.winfixheight = true
   vim.cmd.term()
   vim.cmd 'startinsert'
@@ -63,7 +63,7 @@ end, { desc = 'Terminal' })
 -- Open a tab
 vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]' })
 
--- Cycle tabs use `gt` and 'gT' instead
+-- Cycle tabs with `gt` and 'gT' instead
 -- vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
 
 -- Quit all buffers without saving

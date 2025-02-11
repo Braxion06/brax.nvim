@@ -1,13 +1,23 @@
 return {
-
   { -- Linting
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      -- lint.linters.sqlfluff = {
+      --   cmd = 'sqlfluff',
+      --   name = 'sqlfluff',
+      --   args = { 'lint', '--dialect', 'postgres', '-', '-v' },
+      --   stdin = false,
+      --   stream = 'stderr',
+      -- }
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
+        yaml = { 'yamllint' },
+        python = { 'pylint' },
+        dockerfile = { 'hadolint' },
+        sql = { 'sqlfluff' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

@@ -50,6 +50,7 @@ return {
       { '<leader>s', group = '[S]earch' },
       { '<leader>S', group = '[S]plit' },
       { '<leader>t', group = '[T]oggle' },
+      { '<leader>tg', group = 'Toggle [G]itsigns' },
       { '<leader>w', group = '[W]orkspace' },
     },
   },
