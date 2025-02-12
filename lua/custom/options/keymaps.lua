@@ -67,4 +67,7 @@ vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]
 -- vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
 
 -- Quit all buffers without saving
-vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { desc = '[Q]uit all without saving' })
+vim.keymap.set('n', '<leader>Q', '<CMD>qa!<CR>', { desc = '[Q]uit all without saving' })
+
+-- TODO: Add toggles for general settings
+-- Toggle settings and plugins

@@ -3,8 +3,8 @@ return {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
       { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
-      { 'tpope/vim-dotenv', lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'pgsql' }, lazy = true },
+      { 'tpope/vim-dotenv' },
     },
     cmd = {
       'DBUI',
@@ -12,6 +12,7 @@ return {
       'DBUIAddConnection',
       'DBUIFindBuffer',
     },
+    lazy = true,
     keys = {
       -- Toggle on/off DBUI
       {

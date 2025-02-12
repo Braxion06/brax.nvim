@@ -62,7 +62,7 @@ return {
         -- Toggles
         map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git show [b]lame line' })
         map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = 'Toggle git show [d]eleted' })
-        map('n', '<leader>tgh', gitsigns.toggle_linehl, { desc = 'Toggle git line [H]ighlights' })
+        map('n', '<leader>tgh', gitsigns.toggle_linehl, { desc = 'Toggle git line [h]ighlights' })
       end,
     },
   },

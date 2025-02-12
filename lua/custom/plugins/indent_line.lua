@@ -4,7 +4,8 @@ return {
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    ft = { 'python', 'javascript', 'json' },
+    lazy = true,
+    ft = { 'python', 'javascript', 'typescript', 'json' },
     opts = {},
   },
 }
