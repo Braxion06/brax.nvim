@@ -52,6 +52,7 @@ return {
       { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>S', group = '[S]plit' },
+      { '<leader>s', group = '[S]ort', mode = { 'v' } },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>tg', group = 'Toggle [G]itsigns' },
       { '<leader>w', group = '[W]orkspace' },

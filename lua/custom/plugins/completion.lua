@@ -34,8 +34,9 @@ return {
         -- },
       },
       config = function()
-        ---@diagnostic disable-next-line: assign-type-mismatch
-        require('luasnip.loaders.from_lua').load { paths = 'lua/custom/snippets' }
+        for _, ft_path in ipairs(vim.api.nvim_get_runtime_file('lua/custom/snippets/*.lua', true)) do
+          loadfile(ft_path)()
+        end
       end,
     },
     'saadparwaiz1/cmp_luasnip',
@@ -45,13 +46,13 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
-    'onsails/lspkind.nvim',
+    'onsails/lspkind.nvim', -- Icons and colors for completion window
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    -- luasnip.config.setup {}
+    luasnip.config.setup {}
 
     local lspkind = require 'lspkind'
 
@@ -68,8 +69,6 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           show_labelDetails = false, -- show labelDetails in menu. Disabled by default
-          -- NOTE: The only option i've seen is [LSP]
-          -- May remove the menu field altogether in the future
           menu = {
             nvim_lsp = '[LSP]',
             buffer = '[Buffer]',

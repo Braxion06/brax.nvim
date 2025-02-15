@@ -4,6 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      -- NOTE: Not needed for now
       -- lint.linters.sqlfluff = {
       --   cmd = 'sqlfluff',
       --   name = 'sqlfluff',
@@ -18,6 +19,8 @@ return {
         python = { 'pylint' },
         dockerfile = { 'hadolint' },
         sql = { 'sqlfluff' },
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

@@ -189,7 +189,13 @@ return {
         -- gopls = {},
         pyright = {},
         ansiblels = {},
-        yamlls = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              validate = true,
+            },
+          },
+        },
 
         sqlls = {
           settings = {
@@ -271,6 +277,7 @@ return {
         'hadolint', -- Dockerfile
         'yamllint', -- YAML
         'sqlfluff', -- SQL dialetcs
+        'eslint_d', -- Javascript and Typescript
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

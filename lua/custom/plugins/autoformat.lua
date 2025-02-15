@@ -42,6 +42,7 @@ return {
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
       -- sqlfluff will call the .sqlfluff file and as a fallback the postgres dialect
       sql = { 'sqlfluff', 'sqlfluff_default_dialect', stop_after_first = true },
       html = { 'prettierd' },
