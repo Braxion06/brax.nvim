@@ -12,6 +12,7 @@ return {
       --   stdin = false,
       --   stream = 'stderr',
       -- }
+
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
@@ -22,7 +23,21 @@ return {
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
       }
-
+      --NOTE: Pylint configuration, ignore imports error because is run
+      -- inside mason's venv instead of the user venv
+      lint.linters.pylint.cmd = 'pylint'
+      lint.linters.pylint.args = {
+        '-f',
+        'json',
+        function()
+          return vim.api.nvim_buf_get_name(0)
+        end,
+        '--ignore-imports',
+        'yes',
+        '--disable',
+        -- :import-error (E0401): *Unable to import %s*
+        'E0401',
+      }
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}

@@ -105,5 +105,5 @@ vim.opt.formatoptions:remove 'o'
 -- Neovim's plugins and packages
 -- Neovim custom python environment
 -- vim.g.python3_host_prog = '~/.pyenv/versions/neovim/bin/python3'
--- Current Pyenv environment
-vim.g.python3_host_prog = '~/.pyenv/shims/python3'
+-- Use the current Pyenv environment
+-- vim.g.python3_host_prog = '~/.pyenv/shims/python3'
