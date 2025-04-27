@@ -51,7 +51,7 @@ return {
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
   {
-    -- Treesitter context show the context based on your cursor
+    -- Treesitter context show the context at the top of the editor based on your cursor
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     -- NOTE: Stopped loading the plugin with keys, this are defined below
