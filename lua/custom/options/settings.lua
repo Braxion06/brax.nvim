@@ -95,6 +95,18 @@ vim.opt.more = false
 -- Disable swap file
 vim.opt.swapfile = false
 
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.opt.confirm = true
+
+-- NOTE: Show diagnostic messages as virtual text, new default as v0.11.0 is false
+-- vim.diagnostic.config({virtual_text = true})
+
+-- vim.diagnostic.config { virtual_text = { current_line = true } } -- Show diagnostic messages only on current line
+-- Show diagnostic messages only on current line as a new line pointing at the error
+-- vim.diagnostic.config({virtual_line = {current_line = true}})
+
 -- FIX: Cannot remove 'o' to stop commenting after inserting lines with `o` or `O` from a comment
 -- this should be loaded last or after ftplugin?
 -- Don't have `o` add a comment

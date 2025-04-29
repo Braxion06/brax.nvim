@@ -50,6 +50,7 @@ return {
         end, { desc = 'git [r]eset hunk' })
         -- normal mode
         map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
+        map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
         map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
         map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
         map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
@@ -63,6 +64,7 @@ return {
         map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git show [b]lame line' })
         map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = 'Toggle git show [d]eleted' })
         map('n', '<leader>tgh', gitsigns.toggle_linehl, { desc = 'Toggle git line [h]ighlights' })
+        map('n', '<leader>tgD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted inline' })
       end,
     },
   },
