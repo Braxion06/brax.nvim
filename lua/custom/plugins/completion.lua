@@ -43,7 +43,6 @@ return {
       end,
     },
     'folke/lazydev.nvim',
-    -- 'onsails/lspkind.nvim', -- Icons and colors for completion window
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -70,8 +69,22 @@ return {
       -- <c-k>: Toggle signature help
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      preset = 'default',
-
+      preset = 'default', -- Just in case
+      ['<C-S-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<Tab>'] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        'snippet_forward',
+        'fallback',
+      },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ['<C-n>'] = { 'select_next', 'snippet_forward', 'fallback_to_mappings' },
+      ['<C-p>'] = { 'select_prev', 'snippet_backward', 'fallback_to_mappings' },
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -86,15 +99,19 @@ return {
     completion = {
       -- By default, you may press `<c-space>` to show the documentation.
       -- Optionally, set `auto_show = true` to show the documentation after a delay.
-      documentation = { auto_show = false, auto_show_delay_ms = 500 },
+      documentation = { auto_show = true, auto_show_delay_ms = 500, window = { border = 'single' } },
+      ghost_text = {
+        enabled = true,
+      },
+      -- menu = { border = 'single' },
     },
 
     sources = {
       default = { 'lsp', 'buffer', 'path', 'snippets', 'lazydev' },
-      per_filetype = { sql = { 'dadbod' } },
+      per_filetype = { sql = { 'lsp', 'dadbod', 'buffer', 'snippets' } },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        dadbod = { module = "vim_dadbod_completion.blink" },
+        dadbod = { module = 'vim_dadbod_completion.blink' },
       },
     },
 

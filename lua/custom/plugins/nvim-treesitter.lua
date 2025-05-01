@@ -25,6 +25,7 @@ return {
         'markdown_inline',
         'python',
         'query',
+        'regex',
         'sql',
         'toml',
         'typescript',

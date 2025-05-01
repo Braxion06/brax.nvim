@@ -26,7 +26,7 @@ return {
       else
         return {
           timeout_ms = 2000,
-          lsp_format = lsp_format_opt,
+          lsp_format = 'fallback',
         }
       end
     end,

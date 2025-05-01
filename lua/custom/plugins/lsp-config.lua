@@ -122,7 +122,7 @@ return {
               return client.supports_method(method, { bufnr = bufnr })
             end
           end
-          
+
           -- Neovim has a default keybind to show the documentation on hover
           -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
@@ -167,7 +167,6 @@ return {
         end,
       })
 
-
       -- Diagnostic Config
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
@@ -182,6 +181,28 @@ return {
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
+        -- Diagnostics
+        -- Show diagnostic messages as virtual text, new default as v0.11.0 is false
+        -- vim.diagnostic.config { virtual_text = false }
+
+        -- vim.diagnostic.config { virtual_text = { current_line = true } } -- Show diagnostic messages only on current line
+        -- Show diagnostic messages only on current line as a new line pointing at the error
+        -- vim.diagnostic.config({virtual_line = {current_line = true}})
+
+        -- virtual_lines = {
+        --   current_line = true,
+        --   source = 'if_many',
+        --   spacing = 2,
+        --   format = function(diagnostic)
+        --     local diagnostic_message = {
+        --       [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        --       [vim.diagnostic.severity.WARN] = diagnostic.message,
+        --       [vim.diagnostic.severity.INFO] = diagnostic.message,
+        --       [vim.diagnostic.severity.HINT] = diagnostic.message,
+        --     }
+        --     return diagnostic_message[diagnostic.severity]
+        --   end,
+        -- },
         virtual_text = {
           source = 'if_many',
           spacing = 2,
@@ -202,10 +223,10 @@ return {
       --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      
+
       -- Turn off Dinamyc watching for files
       -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-      
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
