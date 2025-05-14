@@ -73,11 +73,6 @@ Kickstart Guide:
     for when you are first encountering a few different constructs in your Neovim config.
 
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
-
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 require 'custom.options.keymaps'
@@ -170,8 +165,6 @@ require('lazy').setup({
     },
   },
 })
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
 -- TODO:
 -- Implement verylazy into more plugins
 -- Set up Molten For Jupyter notebooks

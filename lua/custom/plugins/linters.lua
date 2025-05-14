@@ -17,11 +17,15 @@ return {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },
+        -- This is not required, LSP is calling ansible-lint
+        -- ansible = { 'ansible_lint' },
         python = { 'pylint' },
         dockerfile = { 'hadolint' },
         sql = { 'sqlfluff' },
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
+        sh = { 'shellcheck' },
+        bash = { 'shellcheck' },
       }
       --NOTE: Pylint configuration, ignore imports error because is run
       -- inside mason's venv instead of the user venv
@@ -36,7 +40,8 @@ return {
         'yes',
         '--disable',
         -- :import-error (E0401): *Unable to import %s*
-        'E0401',
+        -- trailing-newlines (C0305)
+        'E0401,C0305',
       }
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:

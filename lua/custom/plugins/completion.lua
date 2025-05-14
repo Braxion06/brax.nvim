@@ -103,6 +103,7 @@ return {
       ghost_text = {
         enabled = true,
       },
+      list = { max_items = 250 },
       -- menu = { border = 'single' },
     },
 

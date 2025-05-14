@@ -19,16 +19,30 @@ return {
       -- Automatically install LSPs and related tools tao stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {} },
-      'williamboman/mason-lspconfig.nvim',
+      {
+        -- I'm using mason 2.0.0 right now, if problems arise, pin to last 1.x version
+        -- WARN: 2.0.0 introduces a slight slowdown in UI at the first half a second
+        -- Maybe is crashing in the background
+        'williamboman/mason.nvim',
+        version = '1.11.0',
+        opts = {},
+      },
+      -- I'm using mason 2.0.0 right now, if problems arise, pin to 1.32 version
+      { 'williamboman/mason-lspconfig.nvim', version = '1.32.0' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
+      --
+      -- Show current code context
+      { 'SmiteshP/nvim-navic', opts = {
+        lsp = {
+          auto_attach = true,
+        },
+      } },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -239,20 +253,27 @@ return {
 
       -- LSPs (Language Server Protocol servers)
       local servers = {
-        clangd = {},
-        -- csharp_ls = {},
-        -- gopls = {},
-        pyright = {},
-        ansiblels = {},
-        yamlls = {
+        clangd = {}, -- C, C++
+        -- csharp_ls = {}, -- C#
+        -- gopls = {}, -- Go
+        pyright = {}, -- Python
+        ansiblels = { -- Ansible
+          filetypes = { 'yaml.ansible', 'ansible' },
+          root_dir = require('lspconfig').util.root_pattern('ansible.cfg', '.ansible-lint'),
+        },
+        dockerls = {}, -- Dockerfile
+        docker_compose_language_service = {}, -- Docker Compose
+        yamlls = { -- YAML
+          -- Uncomment to limit yamlls to simple yaml files
+          -- filetypes = { 'yaml' },
           settings = {
             yaml = {
               validate = true,
             },
           },
         },
-
-        sqlls = {
+        bashls = {}, -- Sh and Bash
+        sqlls = { -- SQL
           settings = {
             sqlLanguageServer = {
               -- FIX: This does not work, still need to create
@@ -280,7 +301,9 @@ return {
             },
           },
         },
-        -- rust_analyzer = {},
+        marksman = {}, -- Markdown
+        -- vale_ls = {}, -- Advanced Markdown and Text
+        -- rust_analyzer = {}, -- Rust
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -290,7 +313,7 @@ return {
         -- ts_ls = {},
         --
 
-        lua_ls = {
+        lua_ls = { -- Lua
           -- cmd = { ... },
           -- filetypes = { ... },
           -- capabilities = {},
@@ -318,21 +341,31 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         -- Formatters
+        'markdownlint', -- Markdown. Markdownlint is a formatter too
         'stylua', -- Used to format Lua code
         'isort', -- Python formatter for import statements
-        'black', -- Black is the uncompromising Python code formatter(PEP8 compliant)
+        'black', -- Python. Black is the uncompromising Python code formatter(PEP8 compliant)
+        -- 'ruff', -- Python. Ruff is a formatter too
         'yamlfmt', -- YAML
         'prettierd', -- Javascript, Typescript, css, html
-        -- 'sqlfluff', -- Sqlfluff is a formatter too
+        -- 'sqlfluff', --SQL -- Sqlfluff is a formatter too
+        'shfmt', -- Shell
+        -- bashls is formatting its shell files
 
         -- Linters
         'markdownlint', -- Markdown
+        -- 'vale', -- Advanced Markdown and Text
         'jsonlint', -- JSON
         'pylint', -- Python
+        -- 'ruff', -- Python
+        -- 'flake8', -- Python
         'hadolint', -- Dockerfile
         'yamllint', -- YAML
+        'ansible-lint', -- YAML.Ansible
         'sqlfluff', -- SQL dialetcs
         'eslint_d', -- Javascript and Typescript
+        'shellcheck', -- Shell
+
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

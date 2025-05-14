@@ -32,19 +32,21 @@ return {
     end,
     formatters_by_ft = {
       -- Conform can also run multiple formatters sequentially
-      lua = { 'stylua' }, -- Lua
-      python = { 'isort', 'black' }, -- Python
+      lua = { 'stylua' },
+      python = { 'isort', 'black' },
       -- Turned off yamlfmt because i dont want to use it on my ansible lab
-      -- yaml = { 'yamlfmt' }, -- YAML
+      -- yaml = { 'yamlfmt' },
       --
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      markdown = { 'markdownlint', 'prettierd', 'prettier', stop_after_first = true },
       -- sqlfluff will call the .sqlfluff file and as a fallback the postgres dialect
       sql = { 'sqlfluff', 'sqlfluff_default_dialect', stop_after_first = true },
       html = { 'prettierd' },
       json = { 'prettierd' },
+      css = { 'prettierd' },
     },
     formatters = {
       sqlfluff_default_dialect = {
