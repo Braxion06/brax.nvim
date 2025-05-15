@@ -124,6 +124,13 @@ return {
           --  the definition of its *type*, not where it was *defined*.
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+          -- NOTE: This is not necessary
+          -- Neovim has a default keybind to show the documentation on hover
+          -- Show Hover Documentation about the symbol selected
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          -- Show Signature(parameters) help
+          map('S', vim.lsp.buf.signature_help, 'Show signature Help')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
@@ -174,9 +181,9 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map('<leader>th', function()
+            map('<leader>oh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            end, 'Toggle Inlay [H]ints')
           end
         end,
       })
@@ -366,6 +373,10 @@ return {
         'eslint_d', -- Javascript and Typescript
         'shellcheck', -- Shell
 
+        -- DAPs (Debug Adapter Protocol)
+        'debugpy', -- Python
+        -- 'js-debug-adapter', -- Javascript and Typescript
+        -- 'go-debug-adapter', -- Go
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

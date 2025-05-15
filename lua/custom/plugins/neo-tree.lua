@@ -11,9 +11,18 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '\\', '<CMD>Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>o\\', '<CMD>Neotree toggle left<CR>', desc = 'Toggle Neotree left', silent = true },
   },
   opts = {
+    source_selector = {
+      winbar = true,
+      sources = {
+        { source = 'filesystem', display_name = '   Files ' },
+        -- { source = 'buffers', display_name = '   Buffers ' },
+        { source = 'git_status', display_name = '   Git ' },
+      },
+    },
     filesystem = {
       window = {
         mappings = {
@@ -26,6 +35,9 @@ return {
         hide_hidden = false, -- Only for Windows
         hide_by_pattern = {},
       },
+    },
+    window = {
+      position = 'float', --default is left
     },
   },
 }

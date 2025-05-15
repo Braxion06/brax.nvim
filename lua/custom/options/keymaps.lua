@@ -67,11 +67,18 @@ vim.keymap.set('n', '<leader>-', function()
   vim.cmd 'startinsert'
 end, { desc = 'Terminal' })
 
--- Write changes
+-- Write changes, use :w, its faster or the same as <leader>W
 -- vim.keymap.set('n', '<leader>W', ':w', { desc = '[W]rite changes' })
 
+-- Cycle between buffers
+vim.keymap.set('n', 'gb', '<CMD>bnext<CR>', { desc = '[G]o to next [b]uffer' })
+vim.keymap.set('n', 'gB', '<CMD>bnext<CR>', { desc = '[G]o to previous [b]uffer' })
+
 -- Open a tab
-vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]' })
+vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnew<CR>', { desc = 'Create [Tab]' })
+
+-- Close tab
+vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabclose<CR>', { desc = 'Close [Tab]' })
 
 -- Cycle tabs with `gt` and 'gT' instead
 -- vim.keymap.set('n', '<leader><Tab>', '<CMD>tabnext<CR>', { desc = 'Next [Tab]' })
@@ -81,3 +88,17 @@ vim.keymap.set('n', '<leader>Q', '<CMD>qa!<CR>', { desc = '[Q]uit all without sa
 
 -- TODO: Add toggles for general settings
 -- Toggle settings and plugins
+
+-- Diff keymaps
+vim.keymap.set('n', '<leader>ods', '<CMD>windo diffthis<CR>', { desc = '[d]iff [s]plits' })
+vim.keymap.set('n', '<leader>odt', '<CMD>diffthis<CR>', { desc = '[d]iff [t]his file' })
+
+-- Informational keymaps
+vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = 'Buffer [n]ame' })
+
+vim.keymap.set('n', '<leader>ibp', function()
+  print(vim.api.nvim_buf_get_name(0))
+end, { desc = 'Buffer [p]ath' })
+
+-- Put information keymaps
+vim.keymap.set('n', '<leader>pn', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Put Buffer [n]ame' })

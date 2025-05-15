@@ -22,7 +22,6 @@ return {
         'lua',
         'luadoc',
         'markdown',
-        'markdown_inline',
         'python',
         'query',
         'regex',
@@ -50,23 +49,5 @@ return {
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  },
-  {
-    -- Treesitter context show the context at the top of the editor based on your cursor
-    'nvim-treesitter/nvim-treesitter-context',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    -- NOTE: Stopped loading the plugin with keys, this are defined below
-    -- keys = {
-    --   { '<leader>tt', '<CMD>TSContextToggle<CR>', mode = 'n', desc = 'Toggle [t]reesitter context window' },
-    -- },
-    opts = {
-      enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-      multiwindow = false, -- Enable multiwindow support.
-      max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-      min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-      line_numbers = true, -- Show line numbers in the context's window
-      multiline_threshold = 20, -- Maximum number of lines to show for a single context
-    },
-    vim.keymap.set('n', '<leader>tt', '<CMD>TSContextToggle<CR>', { desc = 'Toggle [t]reesitter context window' }),
   },
 }

@@ -61,10 +61,10 @@ return {
           gitsigns.diffthis '@'
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
-        map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git show [b]lame line' })
-        map('n', '<leader>tgd', gitsigns.toggle_deleted, { desc = 'Toggle git show [d]eleted' })
-        map('n', '<leader>tgh', gitsigns.toggle_linehl, { desc = 'Toggle git line [h]ighlights' })
-        map('n', '<leader>tgD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted inline' })
+        map('n', '<leader>ogb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git show [b]lame line' })
+        map('n', '<leader>ogd', gitsigns.toggle_deleted, { desc = 'Toggle git show [d]eleted' })
+        map('n', '<leader>ogh', gitsigns.toggle_linehl, { desc = 'Toggle git line [h]ighlights' })
+        map('n', '<leader>ogD', gitsigns.preview_hunk_inline, { desc = 'Toggle git show [D]eleted inline' })
       end,
     },
   },

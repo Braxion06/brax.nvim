@@ -45,17 +45,24 @@ return {
 
     -- Document existing key chains
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-      { '<leader>d', group = '[D]ocument' },
-      { '<leader>g', group = '[G]enerate' },
+      { '<leader>b', group = '[B]readcrumbs', mode = { 'n' } },
+      { '<leader>d', group = '[D]ebug' }, -- TODO: Configure Debugging in neovim
+      { '<leader>G', group = '[G]enerate' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      { '<leader>r', group = '[R]ename' },
-      { '<leader>s', group = '[S]earch' },
+      { '<leader>i', group = '[i]nformational' },
+      { '<leader>ib', group = '[b]uffer [i]nformation' },
+      { '<leader>p', group = '[P]ut and paste special' }, -- TODO: Decide if remove or not, can be replaced with snippets
+      { '<leader>r', group = '[r]un' }, -- TODO: Configure Run code, just like Dadbod C-e
+      { '<leader>s', group = '[s]earch' },
+      { '<leader>s', group = '[s]ort', mode = { 'v' } },
       { '<leader>S', group = '[S]plit' },
-      { '<leader>s', group = '[S]ort', mode = { 'v' } },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>tg', group = 'Toggle [G]itsigns' },
-      { '<leader>w', group = '[W]orkspace' },
+      { '<leader>t', group = '[t]est code' }, -- TODO: Configure runners for testing code
+      { '<leader>o', group = 'Toggle [O]ptions' },
+      { '<leader>oD', group = 'Toggle [D]ebug code' }, -- TODO: Configure Debugging in neovim
+      { '<leader>od', group = 'Toggle [d]iffviews' },
+      { '<leader>og', group = 'Toggle [g]itsigns' },
+      { '<leader>oT', group = 'Toggle [T]odo' },
+      { '<leader>ot', group = 'Toggle [t]est' }, -- TODO: Configure runners for testing code
     },
   },
 }

@@ -4,10 +4,14 @@
 -- Generate docstrings
 return {
   'danymat/neogen',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    'L3MON4D3/LuaSnip',
+  },
   lazy = true,
   cmd = 'Neogen',
   keys = {
-    { '<leader>gd', ':Neogen<CR>', desc = 'Generate Doc with Neogen' },
+    { '<leader>Gd', ':Neogen<CR>', desc = 'Generate Doc with Neogen' },
   },
   config = function()
     require('neogen').setup {

@@ -16,16 +16,16 @@ return {
     keys = {
       -- Toggle on/off DBUI
       {
-        '<leader>ts',
+        '<leader>os',
         '<CMD>DBUIToggle<CR>',
         mode = 'n',
-        desc = '[T]oggle DBUI [S]QL',
+        desc = 'Toggle DBUI [s]QL',
       },
       {
-        '<leader>tS',
+        '<leader>oS',
         '<CMD>tabnew<CR><BAR><BAR><CMD>DBUI<CR>',
         mode = 'n',
-        desc = '[T]oggle DBUI [S]QL in a NewTab',
+        desc = 'Toggle DBUI [S]QL in a NewTab',
       },
       {
         '<C-e>',
