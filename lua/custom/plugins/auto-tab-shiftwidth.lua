@@ -1,7 +1,6 @@
 -- Detect tabstop and shiftwidth automatically
 
 return {
-
-  'tpope/vim-sleuth',
+  'NMAC427/guess-indent.nvim',
   event = 'InsertEnter',
 }

@@ -23,12 +23,12 @@ return {
         -- I'm using mason 2.0.0 right now, if problems arise, pin to last 1.x version
         -- WARN: 2.0.0 introduces a slight slowdown in UI at the first half a second
         -- Maybe is crashing in the background
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         version = '1.11.0',
         opts = {},
       },
       -- I'm using mason 2.0.0 right now, if problems arise, pin to 1.32 version
-      { 'williamboman/mason-lspconfig.nvim', version = '1.32.0' },
+      { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
