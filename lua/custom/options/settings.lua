@@ -78,7 +78,7 @@ vim.o.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.o.list = true
-vim.o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -105,7 +105,7 @@ vim.o.confirm = true
 -- Don't have `o` add a comment
 -- View current format options
 -- `:set formatoptions?`
-vim.o.formatoptions:remove 'o'
+vim.opt.formatoptions:remove 'o'
 
 -- Neovim's plugins and packages
 -- Neovim custom python environment

@@ -94,11 +94,14 @@ vim.keymap.set('n', '<leader>ods', '<CMD>windo diffthis<CR>', { desc = '[d]iff [
 vim.keymap.set('n', '<leader>odt', '<CMD>diffthis<CR>', { desc = '[d]iff [t]his file' })
 
 -- Informational keymaps
-vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = 'Buffer [n]ame' })
+vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = '[b]uffer [n]ame' })
 
 vim.keymap.set('n', '<leader>ibp', function()
   print(vim.api.nvim_buf_get_name(0))
-end, { desc = 'Buffer [p]ath' })
+end, { desc = '[b]uffer [p]ath' })
 
 -- Put information keymaps
-vim.keymap.set('n', '<leader>pn', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Put Buffer [n]ame' })
+-- vim.keymap.set('n', '<leader>pn', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Put Buffer [n]ame' })
+
+-- Python UV
+-- vim.keymap.set('n', '<leader>pp', '<cmd>!uv run %<CR>', { noremap = false, silent = true })

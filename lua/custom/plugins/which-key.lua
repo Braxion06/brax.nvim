@@ -48,6 +48,7 @@ return {
       { '<leader>b', group = '[B]readcrumbs', mode = { 'n' } },
       { '<leader>d', group = '[D]ebug' }, -- TODO: Configure Debugging in neovim
       { '<leader>G', group = '[G]enerate' },
+      { '<leader>j', group = '[J]ump w/Harpoon' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>i', group = '[i]nformational' },
       { '<leader>ib', group = '[b]uffer [i]nformation' },
