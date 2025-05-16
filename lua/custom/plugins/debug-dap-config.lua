@@ -259,9 +259,12 @@ return {
         vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
       end
 
+      -- Auto open DAP UI
       dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-      dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-      dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+      -- Auto close DAP UI after events
+      -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+      -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
       -- Install golang specific config
       -- require('dap-go').setup {
@@ -282,7 +285,7 @@ return {
       'rcarriga/nvim-dap-ui',
     },
     lazy = true,
-    -- ft = 'python',
+    ft = 'python',
     keys = {
       {
         '<leader>dt',

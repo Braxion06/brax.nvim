@@ -4,6 +4,10 @@ return {
   {
     'LunarVim/breadcrumbs.nvim',
     event = 'LspAttach',
+    cond = function()
+      -- Don't load in terminal buffer
+      return vim.bo.buftype ~= 'terminal'
+    end,
     dependencies = {
       { 'SmiteshP/nvim-navic' },
     },
