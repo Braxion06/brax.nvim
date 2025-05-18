@@ -13,7 +13,7 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = '[q]uickfix list' })
 
 -- Delete with `x` without affecting the default registers.
 vim.keymap.set('n', 'x', '"_x')
@@ -49,9 +49,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- Split keybinds
-vim.keymap.set('n', '<leader>Sh', '<C-w>s', { desc = '[H]orizontal split ' })
-vim.keymap.set('n', '<leader>Sv', '<C-w>v', { desc = '[V]ertical split ' })
-vim.keymap.set('n', '<leader>Sq', '<C-w>c', { desc = '[Q]uit (close) split' })
+vim.keymap.set('n', '<leader>SH', '<C-w>s', { desc = '[H]orizontal split ' })
+vim.keymap.set('n', '<leader>SV', '<C-w>v', { desc = '[V]ertical split ' })
+vim.keymap.set('n', '<leader>SQ', '<C-w>c', { desc = '[Q]uit (close) split' })
 
 -- Sort lines
 vim.api.nvim_set_keymap('v', '<leader>ss', ':sort i<CR>', { desc = '[s]ort', noremap = true })
@@ -93,12 +93,12 @@ vim.keymap.set('n', '<leader>Q', '<CMD>qa!<CR>', { desc = '[Q]uit all without sa
 vim.keymap.set('n', '<leader>ods', '<CMD>windo diffthis<CR>', { desc = '[d]iff [s]plits' })
 vim.keymap.set('n', '<leader>odt', '<CMD>diffthis<CR>', { desc = '[d]iff [t]his file' })
 
--- Informational keymaps
-vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = '[b]uffer [n]ame' })
-
-vim.keymap.set('n', '<leader>ibp', function()
-  print(vim.api.nvim_buf_get_name(0))
-end, { desc = '[b]uffer [p]ath' })
+-- -- Informational keymaps
+-- vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = '[b]uffer [n]ame' })
+--
+-- vim.keymap.set('n', '<leader>ibp', function()
+--   print(vim.api.nvim_buf_get_name(0))
+-- end, { desc = '[b]uffer [p]ath' })
 
 -- Put information keymaps
 -- vim.keymap.set('n', '<leader>pn', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Put Buffer [n]ame' })

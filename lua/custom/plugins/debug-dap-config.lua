@@ -129,11 +129,18 @@ return {
       },
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       {
-        '<leader>dR',
+        '<leader>du',
         function()
           require('dapui').toggle()
         end,
-        desc = '[d]ebug session [R]esult',
+        desc = '[d]ebug [u]i',
+      },
+      {
+        '<leader>oD',
+        function()
+          require('dapui').toggle()
+        end,
+        desc = 'Toggle [D]ebug UI',
       },
       {
         '<leader>dj',
@@ -306,4 +313,3 @@ return {
     end,
   },
 }
--- dap-python.debug_selection

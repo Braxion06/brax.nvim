@@ -100,8 +100,7 @@ vim.o.swapfile = false
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- FIX: Cannot remove 'o' to stop commenting after inserting lines with `o` or `O` from a comment
--- this should be loaded last or after ftplugin?
+-- NOTE: this doesn't seem to work on lua
 -- Don't have `o` add a comment
 -- View current format options
 -- `:set formatoptions?`

@@ -19,7 +19,7 @@ return {
   -- Breadcrumbs navigation
   {
     'hasansujon786/nvim-navbuddy',
-    keys = { { '<leader>bN', '<CMD>Navbuddy<CR>', desc = '[N]avbuddy breadcrumbs' } },
+    keys = { { '<leader>bn', '<CMD>Navbuddy<CR>', desc = '[n]avbuddy breadcrumbs' } },
     dependencies = {
       { 'SmiteshP/nvim-navic', opts = {
         lsp = {
