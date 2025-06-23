@@ -45,6 +45,7 @@ return {
 
     -- Document existing key chains
     spec = {
+      { 'gr', group = 'LSP [r]references', mode = { 'n' } },
       { '<leader>b', group = '[B]readcrumbs', mode = { 'n' } },
       { '<leader>d', group = '[D]ebug' },
       { '<leader>e', group = '[e]rrors and diagnostics' },
@@ -54,7 +55,7 @@ return {
       -- { '<leader>i', group = '[i]nformational' },
       -- { '<leader>ib', group = '[b]uffer [i]nformation' },
       -- { '<leader>p', group = '[P]ut and paste special' },
-      { '<leader>r', group = '[r]un' }, -- TODO: Configure Run code, just like Dadbod C-e
+      { '<leader>r', group = '[r]un REPL w/Iron.nvim' }, -- TODO: Configure Run code, just like Dadbod C-e
       { '<leader>s', group = '[s]earch' },
       { '<leader>s', group = '[s]ort', mode = { 'v' } },
       { '<leader>S', group = '[S]plit' },
@@ -64,6 +65,7 @@ return {
       { '<leader>og', group = 'Toggle [g]itsigns' },
       { '<leader>oT', group = 'Toggle [T]odo' },
       { '<leader>ot', group = 'Toggle [t]est' },
+      { '<leader>or', group = 'Toggle [r]un / REPL' },
     },
   },
 }

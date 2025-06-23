@@ -27,18 +27,6 @@ return {
         mode = 'n',
         desc = 'Toggle DBUI [S]QL in a NewTab',
       },
-      {
-        '<C-e>',
-        '<Plug>(DBUI_ExecuteQuery)',
-        mode = { 'v' },
-        desc = '[E]xecute query',
-      },
-      {
-        '<C-e>',
-        'vap<Plug>(DBUI_ExecuteQuery)',
-        mode = { 'n' },
-        desc = '[E]xecute query around paragraph',
-      },
     },
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
@@ -65,6 +53,10 @@ return {
       -- # .env
       -- DB_UI_DEV=...          # becomes the `dev` connection
       -- DB_UI_PRODUCTION=...   # becomes the `production` connection
+    end,
+    config = function()
+      vim.keymap.set('v', '<C-e>', '<Plug>(DBUI_ExecuteQuery)', { desc = '[E]xecute query' })
+      vim.keymap.set('n', '<C-e>', 'vap<Plug>(DBUI_ExecuteQuery)', { desc = '[E]xecute query around paragraph' })
     end,
   },
 }

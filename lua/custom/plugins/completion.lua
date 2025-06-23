@@ -67,7 +67,7 @@ return {
       -- <c-n>/<c-p> or <up>/<down>: Select next/previous item
       -- <c-e>: Hide menu
       -- <c-k>: Toggle signature help
-      --
+      -- <c-f>/<c-b> to scroll documentation foward and backward
       -- See :h blink-cmp-config-keymap for defining your own keymap
       preset = 'default', -- Just in case
       ['<C-S-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -85,7 +85,8 @@ return {
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
       ['<C-n>'] = { 'select_next', 'snippet_forward', 'fallback_to_mappings' },
       ['<C-p>'] = { 'select_prev', 'snippet_backward', 'fallback_to_mappings' },
-
+      ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     },

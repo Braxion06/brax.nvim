@@ -6,7 +6,7 @@ return {
   opts = { signs = false },
   config = function()
     require('todo-comments').setup {
-      signs = false,
+      signs = true,
     }
     vim.keymap.set('n', '<leader>oT', '<CMD>TodoQuickFix<CR>', { desc = 'Toggle [T]odo quickfix' })
     vim.keymap.set('n', '<leader>sT', '<CMD>TodoTelescope<CR>', { desc = '[s]earch [t]odo Comments' })
