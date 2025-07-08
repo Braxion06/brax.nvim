@@ -1,6 +1,5 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
--- TODO: Make a execute command in python keybind
 
 -- Set <space> as the leader key
 -- See `:help mapleader`

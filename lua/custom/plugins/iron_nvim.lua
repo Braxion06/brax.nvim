@@ -20,7 +20,7 @@ return {
           },
           python = {
             -- { 'python3' }, -- or { "ipython", "--no-autoindent" }
-            command = { 'ipython', '--no-autoindent' }, -- { 'uv run ipython' },
+            command = { 'ipython', '--no-autoindent' },
             format = common.bracketed_paste_python,
             block_dividers = { '# %%', '#%%' },
           },
