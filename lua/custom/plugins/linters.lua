@@ -17,8 +17,7 @@ return {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },
-        -- This is not required, LSP is calling ansible-lint
-        -- ansible = { 'ansible_lint' },
+        -- ansible = { 'ansible_lint' }, -- NOTE: This is not required, LSP is calling ansible-lint
         python = { 'pylint' },
         dockerfile = { 'hadolint' },
         sql = { 'sqlfluff' },
@@ -26,9 +25,9 @@ return {
         typescript = { 'eslint_d' },
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },
+        dotenv = { 'dotenv_linter' },
       }
-      --NOTE: Pylint configuration, ignore imports error because is run
-      -- inside mason's venv instead of the user venv
+      --NOTE: Pylint configuration, json output and disable a subset of rules
       lint.linters.pylint.cmd = 'pylint'
       lint.linters.pylint.args = {
         '-f',
@@ -36,12 +35,8 @@ return {
         function()
           return vim.api.nvim_buf_get_name(0)
         end,
-        '--ignore-imports',
-        'yes',
         '--disable',
-        -- :import-error (E0401): *Unable to import %s*
-        -- trailing-newlines (C0305)
-        'E0401,C0305',
+        'import-error, trailing-newlines, missing-function-docstring, missing-module-docstring',
       }
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:

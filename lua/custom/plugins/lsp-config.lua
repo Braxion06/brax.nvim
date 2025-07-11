@@ -373,6 +373,7 @@ return {
         'sqlfluff', -- SQL dialetcs
         'eslint_d', -- Javascript and Typescript
         'shellcheck', -- Shell
+        'dotenv-linter', -- Dotenv
 
         -- DAPs (Debug Adapter Protocol)
         'debugpy', -- Python

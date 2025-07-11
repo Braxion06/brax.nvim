@@ -11,7 +11,7 @@ return {
   keys = {
     { '<leader>oda', '<CMD>DiffviewOpen<CR>', desc = '[a]LL files git [d]iffview w/HEAD' },
     { '<leader>odd', '<CMD>DiffviewOpen HEAD -- %<CR>', desc = 'CURRENT file git [d]iffview w/HEAD' },
-    { '<leader>odh', '<CMD>DiffviewFileHistory %<CR>', desc = 'CURRENT file [h]istory view' },
-    { '<leader>odH', '<CMD>DiffviewFileHistory<CR>', desc = 'ALL files [H]istory view / git log' },
+    { '<leader>odh', '<CMD>DiffviewFileHistory %<CR>', desc = 'CURRENT file git [h]istory view' },
+    { '<leader>odH', '<CMD>DiffviewFileHistory<CR>', desc = 'ALL files git [H]istory view / git log' },
   },
 }
