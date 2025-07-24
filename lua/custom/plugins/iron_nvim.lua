@@ -61,7 +61,7 @@ return {
         -- toggle_repl_with_cmd_2 = "<space>rh",
         -- restart_repl = '<space>rR', -- calls `IronRestart` to restart the repl
         -- send_motion = '<space>sc',
-        -- visual_send = '<space>sc',
+        visual_send = '<space>rn',
         send_file = '<space>rf',
         send_line = '<space>rl',
         send_paragraph = '<space>sg',
