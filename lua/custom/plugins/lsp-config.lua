@@ -272,7 +272,7 @@ return {
         dockerls = {}, -- Dockerfile
         docker_compose_language_service = {}, -- Docker Compose
         yamlls = { -- YAML
-          -- Uncomment to limit yamlls to simple yaml files
+          -- Uncomment to limit yamlls to yaml files
           -- filetypes = { 'yaml' },
           settings = {
             yaml = {
