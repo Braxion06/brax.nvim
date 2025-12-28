@@ -24,7 +24,7 @@ __________________________________________________
       dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files <CR>'),
       dashboard.button('g', '󰑑' .. ' Find with RegEx(grep)', ':Telescope live_grep <CR>'),
       dashboard.button('s', ' ' .. 'Restore Session', '<CMD>lua require("persistence").load()<cr>'),
-      -- dashboard.button('c', ' ' .. ' Config', ':e ~/.config/nvim/ <CR>'),
+      dashboard.button('c', ' ' .. ' Config', ':e ~/.config/nvim/ <CR>'),
       dashboard.button('l', '󰒲 ' .. ' Lazy', '<CMD>Lazy<CR>'),
       dashboard.button('m', ' ' .. ' Mason', '<CMD>Mason<CR>'),
       dashboard.button('q', ' ' .. ' Quit', '<CMD>qa<CR>'),
@@ -57,7 +57,9 @@ __________________________________________________
       callback = function()
         local stats = require('lazy').stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        dashboard.section.footer.val = '⚡ Neovim loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+        local v = vim.version()
+        local nvim_version = string.format('%d.%d.%d', v.major, v.minor, v.patch)
+        dashboard.section.footer.val = '⚡ Neovim ' .. nvim_version .. ' loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
         pcall(vim.cmd.AlphaRedraw)
       end,
     })

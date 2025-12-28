@@ -28,6 +28,7 @@ return {
         opts = {},
       },
       -- I'm using mason 2.0.0 right now, if problems arise, pin to 1.32 version
+      -- WARN: Mason 2.0.0 caused problems with my config, pinned 1.32
       { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
