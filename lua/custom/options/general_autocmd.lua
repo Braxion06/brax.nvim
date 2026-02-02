@@ -27,3 +27,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --     vim.bo.expandtab = true
 --   end,
 -- })
+
+-- Create notification with vim.notify plugin while recording macros
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+    desc = 'Notify when recording a macro',
+    group = vim.api.nvim_create_augroup ('macro-notify', { clear = true}),
+    callback = function(ev)
+      local msg
+      if ev.event == 'RecordingEnter' then
+        msg = 'Recording to register @'
+      else
+        msg = 'Recorded to register @'
+      end
+      vim.notify(msg .. vim.fn.reg_recording(), vim.log.levels.INFO, { title = 'Macro', hide_from_history = false })
+    end,
+  })

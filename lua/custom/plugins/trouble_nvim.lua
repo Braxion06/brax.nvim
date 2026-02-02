@@ -7,12 +7,12 @@ return {
     {
       '<leader>ew',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = '[w]orkspace Errors and Diagnostics',
+      desc = '[w]orkspace Errors and Diagnostics(Trouble)',
     },
     {
       '<leader>ee',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = 'Current Buffer [e]rrors and Diagnostics',
+      desc = 'Current Buffer [e]rrors and Diagnostics(Trouble)',
     },
     {
       '<leader>es',

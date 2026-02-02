@@ -3,7 +3,7 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Set up UTF-8 encodng
+-- Set up UTF-8 encoding
 vim.scriptencoding = 'utf-8'
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
@@ -105,9 +105,3 @@ vim.o.confirm = true
 -- View current format options
 -- `:set formatoptions?`
 vim.opt.formatoptions:remove 'o'
-
--- Neovim's plugins and packages
--- Neovim custom python environment
--- vim.g.python3_host_prog = '~/.pyenv/versions/neovim/bin/python3'
--- Use the current Pyenv environment
--- vim.g.python3_host_prog = '~/.pyenv/shims/python3'

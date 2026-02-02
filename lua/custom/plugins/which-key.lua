@@ -6,6 +6,9 @@ return {
     -- delay between pressing a key and opening which-key (milliseconds)
     -- this setting is independent of vim.o.timeoutlen
     delay = 0,
+    win = {
+      height = { min = 5, max = 30 },
+    },
     icons = {
       -- set icon mappings to true if you have a Nerd Font
       mappings = vim.g.have_nerd_font,
@@ -55,7 +58,7 @@ return {
       -- { '<leader>i', group = '[i]nformational' },
       -- { '<leader>ib', group = '[b]uffer [i]nformation' },
       -- { '<leader>p', group = '[P]ut and paste special' },
-      { '<leader>r', group = '[r]un REPL w/Iron.nvim' }, -- TODO: Configure Run code, just like Dadbod C-e
+      { '<leader>r', group = '[r]un REPL w/Iron.nvim' },
       { '<leader>s', group = '[s]earch' },
       { '<leader>s', group = '[s]ort', mode = { 'v' } },
       { '<leader>S', group = '[S]plit' },
