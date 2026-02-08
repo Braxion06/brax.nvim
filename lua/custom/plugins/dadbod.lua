@@ -35,6 +35,12 @@ return {
       vim.g.db_ui_use_nvim_notify = 1
       vim.g.db_ui_win_position = 'left'
       vim.g.db_ui_disable_mappings_sql = 0
+      -- default false, opening any table helper will also automatically run its query
+      vim.g.db_ui_auto_execute_table_helpers = 0
+      -- Default query save directory: ~/.local/share/db_ui
+      -- vim.g.db_ui_save_location =
+      -- Execute query on save
+      vim.g.db_ui_execute_on_save = 0
       vim.g.dbs = {
         -- dev =  "postgresql://postgres:postgres@localhost:5432/postgres"
       }

@@ -14,6 +14,7 @@ return {
       numhl = false, -- Line number highlight
       linehl = false, -- Line highlight
       attach_to_untracked = false, -- Attach gitsigns to untracked files
+      current_line_blame = false, -- blame line in virtual text - Toggle it
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 

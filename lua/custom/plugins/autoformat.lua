@@ -11,12 +11,30 @@ return {
         require('conform').format { async = true, lsp_format = 'fallback' }
       end,
       mode = 'n',
-      desc = '[F]ormat buffer',
+      desc = '[f]ormat buffer',
+    },
+    {
+      '<leader>of',
+      function()
+        if not vim.g.disable_autoformat then
+          vim.g.disable_autoformat = true
+        else
+          vim.g.disable_autoformat = false
+        end
+        vim.notify('Toggled Conform format on save status: ' .. vim.inspect(not vim.g.disable_autoformat), vim.log.levels.INFO)
+      end,
+      mode = 'n',
+      desc = 'Toggle auto[f]ormat',
     },
   },
   opts = {
     notify_on_error = true,
     format_on_save = function(bufnr)
+      -- Disable format_on_save if vim.g.disable_autoformat is true
+      if vim.g.disable_autoformat then
+        vim.notify('Saved without formatting', vim.log.levels.INFO)
+        return nil
+      end
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
