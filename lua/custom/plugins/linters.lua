@@ -17,8 +17,12 @@ return {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },
-        -- ansible = { 'ansible_lint' }, -- NOTE: This is not required, LSP is calling ansible-lint
-        python = { 'pylint' },
+        -- NOTE: This is not required, LSP(ansiblels) is calling ansible-lint
+        -- ansible = { 'ansible_lint' },
+        --
+        -- python = { 'pylint' },
+        -- NOTE: This is not required, LSP(ruff) is calling ansible-lint
+        -- python = { 'ruff' },
         dockerfile = { 'hadolint' },
         sql = { 'sqlfluff' },
         javascript = { 'eslint_d' },

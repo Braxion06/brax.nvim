@@ -266,6 +266,10 @@ return {
         -- csharp_ls = {}, -- C#
         -- gopls = {}, -- Go
         pyright = {}, -- Python
+        -- NOTE: Ruff works through the LSP protocol
+        ruff = { -- Python
+          settings = {},
+        },
         ansiblels = { -- Ansible
           filetypes = { 'yaml.ansible', 'ansible' },
           root_dir = require('lspconfig').util.root_pattern('ansible.cfg', '.ansible-lint'),
@@ -352,10 +356,10 @@ return {
         'stylua', -- Used to format Lua code
         'isort', -- Python formatter for import statements
         'black', -- Python. Black is the uncompromising Python code formatter(PEP8 compliant)
-        -- 'ruff', -- Python. Ruff is a formatter too
+        'ruff', -- Python. Ruff is a formatter too
         'yamlfmt', -- YAML
         'prettierd', -- Javascript, Typescript, css, html
-        -- 'sqlfluff', --SQL -- Sqlfluff is a formatter too
+        'sqlfluff', --SQL -- Sqlfluff is a formatter too
         'shfmt', -- Shell
         -- bashls is formatting its shell files
 
@@ -369,7 +373,7 @@ return {
         'hadolint', -- Dockerfile
         'yamllint', -- YAML
         'ansible-lint', -- YAML.Ansible
-        'sqlfluff', -- SQL dialetcs
+        -- 'sqlfluff', -- SQL dialetcs
         'eslint_d', -- Javascript and Typescript
         'shellcheck', -- Shell
         'dotenv-linter', -- Dotenv
