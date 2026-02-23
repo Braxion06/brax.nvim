@@ -22,10 +22,40 @@ return {
         desc = 'Toggle DBUI [s]QL',
       },
       {
+        '<leader>DD',
+        '<CMD>DBUIToggle<CR>',
+        mode = 'n',
+        desc = 'Toggle [D]BUI SQL',
+      },
+      {
         '<leader>oS',
         '<CMD>tabnew<CR><BAR><BAR><CMD>DBUI<CR>',
         mode = 'n',
-        desc = 'Toggle DBUI [S]QL in a NewTab',
+        desc = 'Toggle DBUI [s]QL in a NewTab',
+      },
+      {
+        '<leader>DT',
+        '<CMD>tabnew<CR><BAR><BAR><CMD>DBUI<CR>',
+        mode = 'n',
+        desc = 'Toggle [D]BUI [S]QL in a New[T]ab',
+      },
+      {
+        '<leader>DC',
+        '<CMD>echo b:db<CR>',
+        mode = { 'n', 'v' },
+        desc = '[D]BUI info - SQL [C]onnection',
+      },
+      {
+        '<leader>DL',
+        '<CMD>echo b:db<CR>',
+        mode = { 'n', 'v' },
+        desc = '[D]BUI info - [L]ast query',
+      },
+      {
+        '<leader>DB',
+        '<CMD>DBUIFindBuffer<CR>',
+        mode = 'n',
+        desc = '[D]BUI assign / search [B]uffer',
       },
     },
     init = function()
@@ -61,8 +91,11 @@ return {
       -- DB_UI_PRODUCTION=...   # becomes the `production` connection
     end,
     config = function()
-      vim.keymap.set('v', '<C-e>', '<Plug>(DBUI_ExecuteQuery)', { desc = '[E]xecute query' })
+      vim.keymap.set('v', '<C-e>', '<Plug>(DBUI_ExecuteQuery)', { desc = '[E]xecute selected query lines' })
       vim.keymap.set('n', '<C-e>', 'vap<Plug>(DBUI_ExecuteQuery)', { desc = '[E]xecute query around paragraph' })
+      vim.keymap.set('n', '<leader>DN', 'vap<Plug>(DBUI_ExecuteQuery)', { desc = '[D]BUI query around [N]ext paragraph' })
+      vim.keymap.set('n', '<A-e>', '<Plug>(DBUI_ExecuteQuery)', { desc = 'DBUI query file' })
+      vim.keymap.set('n', '<leader>DF', '<Plug>(DBUI_ExecuteQuery)', { desc = '[D]BUI query [F]ile' })
     end,
   },
 }

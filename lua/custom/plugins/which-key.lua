@@ -7,7 +7,7 @@ return {
     -- this setting is independent of vim.o.timeoutlen
     delay = 0,
     win = {
-      height = { min = 5, max = 30 },
+      height = { min = 5, max = 15 },
     },
     icons = {
       -- set icon mappings to true if you have a Nerd Font
@@ -50,14 +50,13 @@ return {
     spec = {
       { 'gr', group = 'LSP [r]references', mode = { 'n' } },
       { '<leader>b', group = '[B]readcrumbs', mode = { 'n' } },
-      { '<leader>d', group = '[D]ebug' },
+      { '<leader>d', group = '[d]ebug' },
+      { '<leader>D', group = '[D]BUI - SQL' },
       { '<leader>e', group = '[e]rrors and diagnostics' },
       { '<leader>G', group = '[G]enerate' },
       { '<leader>j', group = '[J]ump w/Harpoon' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      -- { '<leader>i', group = '[i]nformational' },
-      -- { '<leader>ib', group = '[b]uffer [i]nformation' },
-      -- { '<leader>p', group = '[P]ut and paste special' },
+      { '<leader>i', group = '[i]nformation' },
       { '<leader>r', group = '[r]un REPL w/Iron.nvim' },
       { '<leader>s', group = '[s]earch' },
       { '<leader>s', group = '[s]ort', mode = { 'v' } },

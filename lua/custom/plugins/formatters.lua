@@ -73,13 +73,20 @@ return {
       html = { 'prettierd' },
       json = { 'prettierd' },
       css = { 'prettierd' },
+      go = { 'goimports' },
     },
     formatters = {
       sqlfluff_default_dialect = {
         command = 'sqlfluff',
+        -- NOTE:
         -- Fix is for soft formatting, errors out if  a rule cannot be applied like Aliases
         -- Format is for force formatting never errors out
         -- Postgres is my default dialect
+        -- The args goes like this sqlfluff format --dialect postgres -
+        -- The `-` makes sqlfluff accept the standard input(the current buffer) instead of a file
+        -- This is a unix convention, noevim is executing:
+        -- echo "<buffer contents>" | sqlfluff format --dialect postgres -
+        -- in the background
         args = { 'format', '--dialect', 'postgres', '-' },
         stdin = true,
       },

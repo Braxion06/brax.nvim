@@ -100,7 +100,4 @@ vim.keymap.set('n', '<leader>odt', '<CMD>diffthis<CR>', { desc = '[d]iff [t]his 
 -- end, { desc = '[b]uffer [p]ath' })
 
 -- Put information keymaps
--- vim.keymap.set('n', '<leader>pn', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Put Buffer [n]ame' })
-
--- Python UV
--- vim.keymap.set('n', '<leader>pp', '<cmd>!uv run %<CR>', { noremap = false, silent = true })
+vim.keymap.set('n', '<leader>in', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Paste Buffer [n]ame' })

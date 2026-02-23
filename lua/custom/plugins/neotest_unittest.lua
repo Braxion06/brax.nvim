@@ -2,12 +2,8 @@ return {
   'nvim-neotest/neotest',
   dependencies = {
     'nvim-neotest/nvim-nio',
-    {
-      'nvim-neotest/neotest-python',
-      cond = function()
-        return vim.bo.filetype ~= 'python'
-      end,
-    },
+    'nvim-neotest/neotest-python',
+    'fredrikaverpil/neotest-golang',
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
     'antoinemadec/FixCursorHold.nvim',
@@ -26,14 +22,11 @@ return {
         python = '.venv/bin/python',
         pytest_discover_instances = true,
       },
+      ['neotest-golang'] = {
+        go_test_args = { '-v', '-race', '-count=1', '-timeout=60s' },
+        dap_go_enabled = true,
+      },
     },
-    -- Example for loading neotest-golang with a custom config
-    -- adapters = {
-    --   ["neotest-golang"] = {
-    --     go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
-    --     dap_go_enabled = true,
-    --   },
-    -- },
     status = { virtual_text = true },
     output = { open_on_run = true },
   },
@@ -84,7 +77,7 @@ return {
   keys = {
     { "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File (Neotest)" },
     { "<leader>ta", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files (Neotest)" },
-    { "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest (Neotest)" },
+    { "<leader>tn", function() require("neotest").run.run() end, desc = "Run Nearest (Neotest)" },
     { "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run Last (Neotest)" },
     { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary (Neotest)" },
     -- Repeat for toggle mnemonic

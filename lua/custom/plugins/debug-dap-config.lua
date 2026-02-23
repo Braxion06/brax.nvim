@@ -8,9 +8,7 @@
 
 return {
   {
-    -- NOTE: Yes, you can install new plugins here!
     'mfussenegger/nvim-dap',
-    -- NOTE: And you can specify dependencies as well
     dependencies = {
       -- Creates a beautiful debugger UI
       {
@@ -18,11 +16,11 @@ return {
         keys = {
 
           {
-            '<leader>od',
+            '<leader>oD',
             function()
               require('dapui').toggle {}
             end,
-            desc = 'Toggle [d]ap/Debugging UI',
+            desc = 'Toggle [D]ebug UI',
           },
           {
             '<leader>de',
@@ -44,9 +42,6 @@ return {
 
       -- Virtual text for nvim-dap
       'theHamsta/nvim-dap-virtual-text',
-
-      -- Add your own debuggers here
-      -- 'leoluz/nvim-dap-go', -- Go
     },
     keys = {
       -- Basic debugging keymaps, feel free to change to your liking!
@@ -210,7 +205,7 @@ return {
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
           'python',
-          -- 'delve',
+          'delve',
         },
       }
 
@@ -272,15 +267,6 @@ return {
       -- Auto close DAP UI after events
       -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
       -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
-      -- Install golang specific config
-      -- require('dap-go').setup {
-      --   delve = {
-      --     -- On Windows delve must be run attached or it crashes.
-      --     -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-      --     detached = vim.fn.has 'win32' == 0,
-      --   },
-      -- }
     end,
   },
 
@@ -310,6 +296,23 @@ return {
       require('dap-python').setup 'uv'
       -- Remember to install pytest on venv
       require('dap-python').test_runner = 'pytest'
+    end,
+  },
+
+  {
+    -- Add your own debuggers here
+    'leoluz/nvim-dap-go', -- Go
+    lazy = true,
+    ft = 'go',
+    -- Install golang specific config
+    config = function()
+      require('dap-go').setup {
+        delve = {
+          -- On Windows delve must be run attached or it crashes.
+          -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+          detached = vim.fn.has 'win32' == 0,
+        },
+      }
     end,
   },
 }

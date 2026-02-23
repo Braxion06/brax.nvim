@@ -264,7 +264,7 @@ return {
       local servers = {
         clangd = {}, -- C, C++
         -- csharp_ls = {}, -- C#
-        -- gopls = {}, -- Go
+        gopls = {}, -- Go
         pyright = {}, -- Python
         -- NOTE: Ruff works through the LSP protocol
         ruff = { -- Python
@@ -362,6 +362,7 @@ return {
         'sqlfluff', --SQL -- Sqlfluff is a formatter too
         'shfmt', -- Shell
         -- bashls is formatting its shell files
+        'goimports', -- Go, Formats just like gofmt and manages imports
 
         -- Linters
         'markdownlint', -- Markdown
@@ -377,11 +378,13 @@ return {
         'eslint_d', -- Javascript and Typescript
         'shellcheck', -- Shell
         'dotenv-linter', -- Dotenv
+        'golangci-lint', -- Go
 
         -- DAPs (Debug Adapter Protocol)
         'debugpy', -- Python
         -- 'js-debug-adapter', -- Javascript and Typescript
-        -- 'go-debug-adapter', -- Go
+        'go-debug-adapter', -- Go Adapter
+        'delve', -- Go Debugger
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
