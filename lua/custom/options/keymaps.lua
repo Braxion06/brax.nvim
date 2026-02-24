@@ -11,7 +11,6 @@ vim.g.maplocalleader = ' '
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = '[q]uickfix list' })
 
 -- Delete with `x` without affecting the default registers.

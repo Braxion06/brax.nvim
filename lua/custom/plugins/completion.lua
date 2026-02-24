@@ -19,9 +19,7 @@ return {
         -- Build Step is needed for regex support in snippets.
         -- This step is not supported in many windows environments.
         -- Remove the below condition to re-enable on windows.
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-          return
-        end
+        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then return end
         return 'make install_jsregexp'
       end)(),
       dependencies = {
@@ -42,7 +40,6 @@ return {
         end
       end,
     },
-    'folke/lazydev.nvim',
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -109,10 +106,9 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'buffer', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'buffer', 'path', 'snippets' },
       per_filetype = { sql = { 'lsp', 'dadbod', 'buffer', 'snippets' } },
       providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         dadbod = { module = 'vim_dadbod_completion.blink' },
       },
     },

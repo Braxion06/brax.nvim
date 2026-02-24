@@ -1,7 +1,8 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- For more options, you can see `:help option-list`
+-- and `:help lua-guide-options`
 
 -- Set up UTF-8 encoding
 vim.scriptencoding = 'utf-8'
@@ -24,7 +25,21 @@ vim.o.relativenumber = true
 -- Use Buffer name for the window title
 vim.o.title = true
 
--- Treat
+-- Diagnostic Config
+-- -- See :help vim.diagnostic.Opts
+vim.diagnostic.config {
+  update_in_insert = false,
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  -- Can switch between these as you prefer
+  virtual_text = true, -- Text shows up at the end of the line
+  virtual_lines = false, -- Teest shows up underneath the line, with virtual lines
+
+  -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+  jump = { float = true },
+}
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
@@ -40,9 +55,7 @@ vim.o.expandtab = true
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- Better line wrapping
 -- Enable line wrapping
@@ -58,8 +71,7 @@ vim.o.breakindent = true
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.o.ignorecase = true vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
