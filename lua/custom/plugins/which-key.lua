@@ -9,9 +9,8 @@ return {
     win = {
       height = { min = 5, max = 15 },
     },
-    icons = {
-      -- set icon mappings to true if you have a Nerd Font
-      mappings = vim.g.have_nerd_font},
+    -- set icon mappings to true if you have a Nerd Font
+    icons = { mappings = vim.g.have_nerd_font },
 
     -- Document existing key chains
     spec = {
@@ -26,6 +25,7 @@ return {
       { '<leader>i', group = '[i]nformation' },
       { '<leader>r', group = '[r]un REPL w/Iron.nvim' },
       { '<leader>s', group = '[s]earch', mode = { 'n' } },
+      { '<leader>sl', group = '[s]earch [l]sp Symbols', mode = { 'n' } },
       { '<leader>s', group = '[s]ort', mode = { 'v' } },
       { '<leader>S', group = '[S]plit' },
       { '<leader>t', group = '[t]est code' },

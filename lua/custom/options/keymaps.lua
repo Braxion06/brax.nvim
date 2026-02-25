@@ -84,19 +84,15 @@ vim.keymap.set('n', '<leader><S-Tab>', '<CMD>tabclose<CR>', { desc = 'Close [Tab
 -- Quit all buffers without saving
 vim.keymap.set('n', '<leader>Q', '<CMD>qa!<CR>', { desc = '[Q]uit all without saving' })
 
--- TODO: Add toggles for general settings
--- Toggle settings and plugins
-
 -- Diff keymaps
 vim.keymap.set('n', '<leader>ods', '<CMD>windo diffthis<CR>', { desc = '[d]iff [s]plits' })
 vim.keymap.set('n', '<leader>odt', '<CMD>diffthis<CR>', { desc = '[d]iff [t]his file' })
 
--- -- Informational keymaps
 -- vim.keymap.set('n', '<leader>ibn', "<CMD>echo expand('%')<CR>", { desc = '[b]uffer [n]ame' })
 --
 -- vim.keymap.set('n', '<leader>ibp', function()
 --   print(vim.api.nvim_buf_get_name(0))
 -- end, { desc = '[b]uffer [p]ath' })
 
--- Put information keymaps
+-- Informational keymaps
 vim.keymap.set('n', '<leader>in', "i<C-R>=expand('%')<CR><Esc>", { desc = ' Paste Buffer [n]ame' })

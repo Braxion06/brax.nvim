@@ -1,5 +1,5 @@
 -- Breadcrumbs at the top of neovim
--- nvim-navic is a common dependency, Lazy shoul dedup the install/configuration
+-- nvim-navic is a common dependency, Lazy should dedup the install/configuration
 return {
   {
     'LunarVim/breadcrumbs.nvim',
@@ -11,9 +11,7 @@ return {
     dependencies = {
       { 'SmiteshP/nvim-navic' },
     },
-    config = function()
-      require('breadcrumbs').setup()
-    end,
+    config = function() require('breadcrumbs').setup() end,
   },
 
   -- Breadcrumbs navigation

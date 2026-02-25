@@ -9,6 +9,6 @@ return {
       signs = true,
     }
     vim.keymap.set('n', '<leader>oT', '<CMD>TodoQuickFix<CR>', { desc = 'Toggle [T]odo quickfix' })
-    vim.keymap.set('n', '<leader>sT', '<CMD>TodoTelescope<CR>', { desc = '[s]earch [T]odo Comments' })
+    vim.keymap.set('n', '<leader>st', '<CMD>TodoTelescope<CR>', { desc = '[s]earch [t]odo Comments' })
   end,
 }

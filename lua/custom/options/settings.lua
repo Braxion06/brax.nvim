@@ -71,7 +71,8 @@ vim.o.breakindent = true
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.o.ignorecase = true vim.o.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
@@ -116,4 +117,4 @@ vim.o.confirm = true
 -- Don't have `o` add a comment
 -- View current format options
 -- `:set formatoptions?`
-vim.opt.formatoptions:remove 'o'
+vim.opt.formatoptions:remove { 'o' }
