@@ -11,7 +11,7 @@ local ls = require 'luasnip'
 local i = ls.insert_node
 local s = ls.snippet
 -- local sn = ls.snippet_node
--- local t = ls.text_node
+local t = ls.text_node
 
 local fmt = require('luasnip.extras.fmt').fmt
 -- local rep = extras.rep
@@ -29,4 +29,23 @@ ls.add_snippets('python', {
     )
   ),
   s('pr', fmt("print('{}')", { i(1, 'Print description') })),
+  s(
+    { trig = 'tstring', name = 'T string renderer', desc = 'T string handling and templating snippet' },
+    fmt(
+      "\
+    from string.templatelib import Template, convert\
+    def render_to_str{}(tpl: Template) -> str:\
+        values: list[str] = []\
+        for part in tpl:\
+            if isinstance(part, str):\
+                values.append(part)\
+            else:\
+               val: str = convert(part.value, part.conversion)\
+               if part.format_spec:\
+                   val = format(val, part.format_spec)\
+               values.append(val)\
+        return ''.join(values)",
+      { i(0) }
+    )
+  ),
 })
