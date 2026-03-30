@@ -7,7 +7,7 @@ return {
       {
         'rcarriga/nvim-notify',
         opts = {
-          timeout = 5000,
+          timeout = 3000,
           background_colour = '#000000',
           render = 'wrapped-compact',
           stages = 'slide',
@@ -39,14 +39,10 @@ return {
       })
       local focused = true
       vim.api.nvim_create_autocmd('FocusGained', {
-        callback = function()
-          focused = true
-        end,
+        callback = function() focused = true end,
       })
       vim.api.nvim_create_autocmd('FocusLost', {
-        callback = function()
-          focused = false
-        end,
+        callback = function() focused = false end,
       })
       -- Desktop notifications
       -- table.insert(opts.routes, 1, {
