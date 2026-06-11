@@ -163,6 +163,7 @@ return {
             },
           },
         },
+        ts_ls = {}, -- Javascript and Typescript
         marksman = {}, -- Markdown
         -- vale_ls = {}, -- Advanced Markdown and Text
         -- rust_analyzer = {}, -- Rust
@@ -172,7 +173,6 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
       }
       -- NOTE: MASON CONFIG
       -- Ensure the servers and tools above are installed
@@ -192,9 +192,9 @@ return {
         'yamlfmt', -- YAML
         'prettier', -- Javascript, Typescript, css, html
         'prettierd', -- Javascript, Typescript, css, html
-        'sqlfluff', --SQL -- Sqlfluff is a formatter too
+        'sqlfluff', -- SQL -- Sqlfluff is a formatter too
         'shfmt', -- Shell
-        -- bashls is formatting its shell files
+        -- bashls, -- Shell/Bash -- Bashls is a formatter too
         'goimports', -- Go, Formats just like gofmt and manages imports
 
         -- Linters
@@ -215,7 +215,7 @@ return {
 
         -- DAPs (Debug Adapter Protocol)
         'debugpy', -- Python
-        -- 'js-debug-adapter', -- Javascript and Typescript
+        'js-debug-adapter', -- Javascript and Typescript
         'go-debug-adapter', -- Go Adapter
         'delve', -- Go Debugger
       })
