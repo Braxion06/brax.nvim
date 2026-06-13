@@ -64,7 +64,7 @@ return {
         visual_send = '<space>rn',
         send_file = '<space>rf',
         send_line = '<space>rl',
-        send_paragraph = '<space>sg',
+        send_paragraph = '<space>rg',
         send_until_cursor = '<space>rc',
         -- send_mark = '<space>sm',
         send_code_block = '<space>rb',
